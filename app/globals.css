@@ -1,0 +1,211 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Updated color scheme to match new Westlert Frames logo - forest green and lime */
+:root {
+  --background: #fefefe;
+  --foreground: #2d5016;
+  --card: #ffffff;
+  --card-foreground: #2d5016;
+  --popover: #ffffff;
+  --popover-foreground: #2d5016;
+  --primary: #2d5016; /* Forest green from logo */
+  --primary-foreground: #ffffff;
+  --secondary: #9acd32; /* Lime green accent */
+  --secondary-foreground: #2d5016;
+  --muted: #f0f8e8; /* Light green tint */
+  --muted-foreground: #4a6b2a;
+  --accent: #7cb342; /* Medium green accent */
+  --accent-foreground: #ffffff;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: #9acd32;
+  --input: #f0f8e8;
+  --ring: #2d5016;
+  --chart-1: #2d5016;
+  --chart-2: #9acd32;
+  --chart-3: #7cb342;
+  --chart-4: #aed581;
+  --chart-5: #c8e6c9;
+  --radius: 0.75rem;
+  --sidebar: #f0f8e8;
+  --sidebar-foreground: #2d5016;
+  --sidebar-primary: #2d5016;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #9acd32;
+  --sidebar-accent-foreground: #2d5016;
+  --sidebar-border: #9acd32;
+  --sidebar-ring: #2d5016;
+}
+
+.dark {
+  --background: #1a2e0f;
+  --foreground: #c8e6c9;
+  --card: #2d5016;
+  --card-foreground: #c8e6c9;
+  --popover: #1a2e0f;
+  --popover-foreground: #c8e6c9;
+  --primary: #9acd32;
+  --primary-foreground: #1a2e0f;
+  --secondary: #4a6b2a;
+  --secondary-foreground: #c8e6c9;
+  --muted: #2d5016;
+  --muted-foreground: #7cb342;
+  --accent: #7cb342;
+  --accent-foreground: #1a2e0f;
+  --destructive: #dc2626;
+  --destructive-foreground: #c8e6c9;
+  --border: #4a6b2a;
+  --input: #4a6b2a;
+  --ring: #9acd32;
+  --chart-1: #9acd32;
+  --chart-2: #7cb342;
+  --chart-3: #aed581;
+  --chart-4: #c8e6c9;
+  --chart-5: #4a6b2a;
+  --sidebar: #1a2e0f;
+  --sidebar-foreground: #c8e6c9;
+  --sidebar-primary: #9acd32;
+  --sidebar-primary-foreground: #1a2e0f;
+  --sidebar-accent: #4a6b2a;
+  --sidebar-accent-foreground: #c8e6c9;
+  --sidebar-border: #4a6b2a;
+  --sidebar-ring: #9acd32;
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    /* Enhanced mobile experience */
+    overscroll-behavior: none;
+    -webkit-overflow-scrolling: touch;
+    touch-action: manipulation;
+    /* Updated gradient to use new green brand colors */
+    background: linear-gradient(135deg, #f0f8e8 0%, #c8e6c9 100%);
+    min-height: 100vh;
+  }
+}
+
+/* Mobile-first responsive improvements */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+
+  input,
+  textarea,
+  select {
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+}
+
+/* Updated mobile header with new green brand colors */
+.mobile-header {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(45, 80, 22, 0.95);
+  box-shadow: 0 2px 20px rgba(45, 80, 22, 0.1);
+}
+
+.dark .mobile-header {
+  background: rgba(26, 46, 15, 0.95);
+}
+
+/* Enhanced touch targets for mobile */
+.touch-target {
+  min-height: 48px;
+  min-width: 48px;
+}
+
+/* Smooth scrolling and animations */
+html {
+  scroll-behavior: smooth;
+}
+
+/* PWA safe area handling */
+@supports (padding: max(0px)) {
+  .safe-area-inset-top {
+    padding-top: max(1rem, env(safe-area-inset-top));
+  }
+
+  .safe-area-inset-bottom {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+}
+
+/* Typography improvements */
+body {
+  font-feature-settings: "rlig" 1, "calt" 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Updated scrollbar with new green brand colors */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f8e8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2d5016;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4a6b2a;
+}
+
+/* Currency formatting for Ghana Cedis */
+.currency::before {
+  content: "₵";
+}
